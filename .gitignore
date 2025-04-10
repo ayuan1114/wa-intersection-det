@@ -1,2 +1,3 @@
 videos/*.mp4
 videos/espringsr_reencode.avi
+**/__pycache__/

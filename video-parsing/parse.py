@@ -4,9 +4,8 @@ import sys
 
 sys.path.append('horizontal-line-filtering')
 
-from intersection_filter import detect_intersection
-
-
+from intersection_filter import detect_intersection, test_import
+test_import()
 
 def parse(video_path):
     frames = []
@@ -52,8 +51,9 @@ def display(frames):
 frames = parse('clip1.avi')
 annotated = []
 
-print(frames[0].shape())
+print(frames[0].shape)
 for frame in frames:
-    annotated.append(detect_intersection(img = frame))
+    print(frame.shape)
+    annotated.append(detect_intersection(img=frame))
 
 display(annotated)

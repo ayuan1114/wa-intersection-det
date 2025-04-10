@@ -62,6 +62,9 @@ def detect_intersection(im_path = None, img = None):
 
     return (min_x, tot_y1 // (vals//2)), (max_x, tot_y2 // (vals//2))
 
+def test_import():
+    print('Successfully imported')
+
 if __name__ == '__main__':
     (x1, y1), (x2, y2) = detect_intersection('../images/intersection3.png')
     print(f'{x1} {y1} {x2} {y2}')
