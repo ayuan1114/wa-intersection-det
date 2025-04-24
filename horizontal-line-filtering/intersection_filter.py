@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
-def detect_intersection(im_path = None, img = None):
+def detect_intersection(im_path = None, img = None, return_img = False):
     if not im_path == None:
         img = cv2.imread('../images/intersection3.png')
 
@@ -55,12 +55,16 @@ def detect_intersection(im_path = None, img = None):
     tot_y2 = sum(y2_arr[vals//4:3*vals//4])
 
     # visualize
-    cv2.line(img, (min_x, tot_y1 // (vals//2)), (max_x, tot_y2 // (vals//2)), (255, 0, 0), 3)
-    plt.figure(figsize=(8, 6))
-    plt.imshow(img)
-    plt.show()
+    if not vals==0 and not vals==1:
+        cv2.line(img, (min_x, tot_y1 // (vals//2)), (max_x, tot_y2 // (vals//2)), (255, 0, 0), 3)
+    #plt.figure(figsize=(8, 6))
+    #plt.imshow(img)
+    #plt.show()
 
-    return (min_x, tot_y1 // (vals//2)), (max_x, tot_y2 // (vals//2))
+    if return_img:
+        return img
+    else:
+        return (min_x, tot_y1 // (vals//2)), (max_x, tot_y2 // (vals//2))
 
 def test_import():
     print('Successfully imported')
